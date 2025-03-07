@@ -1,19 +1,10 @@
-package web.controller;
+package web.model;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-@Controller
 public class Car {
 
     private String brand;
     private String model;
     private int year;
-
-    public Car() {
-    }
 
     public Car(String brand, String model, int year) {
         this.brand = brand;
@@ -43,11 +34,5 @@ public class Car {
 
     public void setYear(int year) {
         this.year = year;
-    }
-
-    @GetMapping(value = "/cars")
-    public String printCars(ModelMap model, @RequestParam int count) {
-        model.addAttribute("cars", MyService.getCars(count));
-        return "cars";
     }
 }
